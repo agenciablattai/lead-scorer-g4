@@ -10,7 +10,8 @@ import os
 load_dotenv()
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
-DATA_PATH = os.path.expanduser("~/.cache/kagglehub/datasets/agungpambudi/crm-sales-predictive-analytics/versions/1/")
+import kagglehub
+DATA_PATH = kagglehub.dataset_download("agungpambudi/crm-sales-predictive-analytics") + "/"
 
 @st.cache_data
 def load_data():
